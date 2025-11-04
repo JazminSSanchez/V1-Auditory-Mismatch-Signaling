@@ -1,0 +1,40 @@
+# Analisis for V1 Cortex SingleUnitAnalysis
+Personal code, not public, and specific to CANELAB stimuli Adam H. & Jazmin S.
+
+All code here works on data organised in the bst format, produced by the the [TDT_Single_Unit_Pipeline](https://github.com/adam-hockley/TDT_Single_Unit_Pipeline)
+
+As previously, for the looping to work, data folders should be organised as: **AnimalTank/PositionNumber/RecordingBlocks**.
+
+Overview of code contained here:
+
+## 1) ReadFunctionsMultichannel.m & ReadFunctionsMultichannelMUA.m (MUA ending stands for multiunits as recognized by the spikesorting)
+
+	1.1) SignificanceWindow.m
+	1.2) CSI_bootstrapping.m
+		1.2.1) CSI_bootstrap2.m
+
+	*** From which we get the following .mat files:
+		- spiketable_Aud_Sig.mat
+		This table contains the path, unit, the spikes corresponding to each condition, location, and if the unit is auditory and significant (1 or 0).
+		- NormalizedIndexesTable.mat
+		Contains normalized indexes and STD, DEV and CTR values
+		- SignificanceWindowTable.mat
+		Contains if DEV or STD conditions have a significat response (2 standard deviations above basal activity) and the normalized values for each condition and basal activity. 
+
+## 2) DotRasterMultichannel.m & DotRasterMultichannelPeriodic.m 
+Generates and saves the dot raster plots for the ODDBALL ASC and ODDBALL ASC PERIODIC.
+
+
+## 3) HistogramsSpikesTable_Generator_V1.m
+	3.1) SignificanceWindow_Spikes.m
+*** From which we get the following .mat file:
+- HistogramsSpikesTable.mat or HistogramsSpikesTable_MUA.mat
+It contains the histogram spike counts for each condition
+!!! change the names of the matrix and path if its units or multiunits (MUA).
+
+
+Combines data from each bst and saves into one big table of spike data correspaonding to different stimuli used. Also produces PSTH plots for each neuron.
+
+*** change line 111 depeding on your folder name to save the block name in the spiketable.
+
+The restulting data table should contain all the data you need, and be small enough to quickly load, analyse and plot any way you want.
