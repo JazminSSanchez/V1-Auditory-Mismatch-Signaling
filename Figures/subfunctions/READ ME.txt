@@ -1,0 +1,26 @@
+Functions used by other programs in the creation of graphs. 
+Written by Jazmin Sanchez 2025
+
+## ExtractDataMultiChannel
+Read and save in a structure the complete spikedata, spikedata9 and the hole BST spikedata9 just includes trials that have 9 standard before the deviant in the oddball paradigm, and in the case of the controls and periodic oddball it takes the first 9 sequences. 
+
+## Mann_Kendall.m
+Performs original Mann-Kendall test of the null hypothesis of trend absence in the vector V, against the alternative of trend.
+
+## pathsMultichannel
+Creates a table with all the directories of interest from a specific area.
+
+## ReadPCAPaths.m
+Reads all the folders saved in the specified path
+
+## ReadUnitTableMultichannel.m
+Reads an excel spreadsheet with the data of unit table
+
+##shadedErrorBar.m
+Generates a continuous error bar area around a line plot
+
+## ttest_bonf.m
+Performs a set of Bonferroni-corrected t-tests to determine which pairs of treatments could have the same mean.
+
+## fdr_bh.m
+Executes the Benjamini & Hochberg (1995) and the Benjamini & Yekutieli (2001) procedure for controlling the false discovery rate (FDR) of a family of hypothesis tests.
